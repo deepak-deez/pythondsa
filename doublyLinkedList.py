@@ -21,3 +21,12 @@ class Node:
         return self.prev!=None
     def __str__(self):
         return "Node[Data = %s]"% (self.data)
+    
+    def insertAtBeginning(self,data):
+        newNode =Node(data, None, None)
+        if self.head ==None:
+            self.head =newNode
+        else:
+            newNode.prev =None
+            newNode.next =self.head
+            self.head =newNode
