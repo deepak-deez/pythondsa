@@ -68,3 +68,14 @@ class Node:
                 temp.next.prev =newNode
                 temp.next =newNode
     
+    def deleteFromGivenPosition(self, index):
+        temp = self.getNode(index)
+        if temp:
+            temp.prev.next = temp.next
+            if temp.next:
+                temp.next.prev = temp.prev
+            temp.prev =None
+            temp.next =None
+            temp.data = None
+    
+    
