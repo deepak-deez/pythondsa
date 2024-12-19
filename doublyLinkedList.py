@@ -30,3 +30,13 @@ class Node:
             newNode.prev =None
             newNode.next =self.head
             self.head =newNode
+    def insertAtEnd(self,data):
+        if self.head ==None:
+            self.head =Node(data)
+        else:
+            current =self.head
+            while current.next!=None:
+                current =current.next
+            newNode = Node(data)
+            newNode.prev =current
+            newNode.next =None
