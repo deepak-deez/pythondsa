@@ -78,4 +78,14 @@ class Node:
             temp.next =None
             temp.data = None
     
-    
+    def deleteWithData(self,data):
+        temp =self.head
+        while temp is not None:
+            if temp.data == data:
+                if temp.next is not None:
+                    temp.prev.next =temp.next
+                    temp.next.prev =temp.prev
+                else:
+                    self.head = temp.next
+                    temp.next.prev = None
+                temp = temp.next
