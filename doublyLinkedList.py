@@ -30,6 +30,7 @@ class Node:
             newNode.prev =None
             newNode.next =self.head
             self.head =newNode
+
     def insertAtEnd(self,data):
         if self.head ==None:
             self.head =Node(data)
@@ -40,3 +41,30 @@ class Node:
             newNode = Node(data)
             newNode.prev =current
             newNode.next =None
+
+    def getNode(self, index):
+        currentNode = self.head
+        if currentNode ==None:
+            return None
+        i=0
+        while i<index and currentNode.next is not None:
+            currentNode = currentNode.next
+            if currentNode ==None:
+                break
+            i+=1
+        return currentNode
+    
+    def insertAtGivenPosition(self,index,data):
+        newNode =Node(data)
+        if self.head ==None or index ==0:
+            self.insertAtBeginning(data)
+        elif index>0:
+            temp =self.getNode(index)
+            if temp ==None or temp.next==None:
+                self.insertAtEnd(data)
+            else:
+                newNode.next =temp.next
+                newNode.prev =temp
+                temp.next.prev =newNode
+                temp.next =newNode
+    
