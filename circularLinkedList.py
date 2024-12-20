@@ -64,4 +64,15 @@ class Node:
         currentNode.next =None
         return
     
+    def deleteFirstNodeInCLL(self):
+        if self.head ==None:
+            print("List is empty")
+            return
+        currentNode = self.head
+        while currentNode.next!= self.head:
+            currentNode = currentNode.next
+        currentNode.next = self.head.next
+        self.head.next =None
+        self.head = currentNode.next
+        return
     
