@@ -39,4 +39,16 @@ class Node:
             currentNode = currentNode.next
             print(currentNode.data)
 
+    def insertAtBeginning(self, data):
+        currentNode =self.head
+        newNode = Node(data)
+        if self.head ==None:
+            self.head = newNode
+        else:
+            while currentNode.next!=self.head:
+                currentNode = currentNode.next
+            currentNode.next = newNode
+            newNode.next = self.head
+            self.head = newNode
+    
     
