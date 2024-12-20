@@ -39,7 +39,7 @@ class Node:
             currentNode = currentNode.next
             print(currentNode.data)
 
-    def insertAtBeginning(self, data):
+    def insertAtBeginningInCLL(self, data):
         currentNode =self.head
         newNode = Node(data)
         if self.head ==None:
@@ -50,5 +50,18 @@ class Node:
             currentNode.next = newNode
             newNode.next = self.head
             self.head = newNode
+    
+    def deleteLastNodeInCLL(self):
+        temp = self.head
+        currentNode =self.head
+        if self.head ==None:
+            print("List is empty")
+            return
+        while currentNode.next!=self.head:
+            temp = currentNode
+            currentNode = currentNode.next
+        temp.next = currentNode.next
+        currentNode.next =None
+        return
     
     
