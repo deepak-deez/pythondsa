@@ -18,6 +18,7 @@ class Node:
         return self.next
     def hasNext(self):
         return self.next!=None
+    
     def circularListLength(self):
         currentNode = self.head
         if currentNode ==None:
@@ -28,4 +29,14 @@ class Node:
             currentNode = currentNode.next
             count+=1
         return count
+    
+    def printCircularList(self):
+        currentNode =self.head
+        if currentNode ==None:
+            return 0
+        print(currentNode.data)
+        while currentNode!= self.head:
+            currentNode = currentNode.next
+            print(currentNode.data)
+
     
